@@ -1,19 +1,38 @@
 package co.com.sured.videotienda.model;
 
-import java.util.Date;
+import java.io.Serializable;
 
-public class VideoJuego {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name="PRODUCTOS")
+public class VideoJuego implements Serializable{
 	
+
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String nombre;
 	private String director;
 	private String protagonista;
-	private String productor;
-	private Date año;
+	private String productora;
+	private int año;
 	private String tecnologia;
+	
+	@Column(name="precio_alquiler")
 	private double precioAlquiler;
+	@Column(name="precio_venta")
 	private double precioVenta;
 	private int estado;
+	private int stock;
+	
 	public Long getId() {
 		return id;
 	}
@@ -38,16 +57,16 @@ public class VideoJuego {
 	public void setProtagonista(String protagonista) {
 		this.protagonista = protagonista;
 	}
-	public String getProductor() {
-		return productor;
+	public String getProductora() {
+		return productora;
 	}
-	public void setProductor(String productor) {
-		this.productor = productor;
+	public void setProductora(String productora) {
+		this.productora = productora;
 	}
-	public Date getAño() {
+	public int getAño() {
 		return año;
 	}
-	public void setAño(Date año) {
+	public void setAño(int año) {
 		this.año = año;
 	}
 	public String getTecnologia() {
@@ -74,12 +93,21 @@ public class VideoJuego {
 	public void setEstado(int estado) {
 		this.estado = estado;
 	}
+	public int getStock() {
+		return stock;
+	}
+	public void setStock(int stock) {
+		this.stock = stock;
+	}
 	@Override
 	public String toString() {
-		return "juego [id=" + id + ", nombre=" + nombre + ", director=" + director + ", protagonista=" + protagonista
-				+ ", productor=" + productor + ", año=" + año + ", tecnologia=" + tecnologia + ", precioAlquiler="
-				+ precioAlquiler + ", precioVenta=" + precioVenta + ", estado=" + estado + "]";
+		return "VideoJuego [id=" + id + ", nombre=" + nombre + ", director=" + director + ", protagonista="
+				+ protagonista + ", productora=" + productora + ", año=" + año + ", tecnologia=" + tecnologia
+				+ ", precioAlquiler=" + precioAlquiler + ", precioVenta=" + precioVenta + ", estado=" + estado
+				+ ", stock=" + stock + "]";
 	}
+
+	
 	
 	
 	

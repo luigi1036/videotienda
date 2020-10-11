@@ -1,19 +1,46 @@
 package co.com.sured.videotienda.model;
 
+import java.io.Serializable;
 import java.util.Date;
 
-public class Cliente {
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
+@Entity
+@Table(name="CLIENTES")
+public class Cliente implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long id;
 	private String cedula;
+	@Column(name="tipo_documento")
 	private int tipoDocumento;
+	@Column(name="primer_nombre")
 	private String primerNombre;
+	@Column(name="segundo_nombre")
 	private String segundoNombre;
+	@Column(name="primer_apellido")
 	private String primerApellido;
+	@Column(name="segundo_apellido")
 	private String segundoApellido;
 	private String telefono;
 	private String email;
+	@Column(name="fecha_nacimiento")
+	@Temporal(TemporalType.DATE)
 	private Date fechaNacimiento;
+	
+	private int estado;
+	
 	public Long getId() {
 		return id;
 	}
@@ -74,13 +101,21 @@ public class Cliente {
 	public void setFechaNacimiento(Date fechaNacimiento) {
 		this.fechaNacimiento = fechaNacimiento;
 	}
+	public int getEstado() {
+		return estado;
+	}
+	public void setEstado(int estado) {
+		this.estado = estado;
+	}
 	@Override
 	public String toString() {
 		return "Cliente [id=" + id + ", cedula=" + cedula + ", tipoDocumento=" + tipoDocumento + ", primerNombre="
 				+ primerNombre + ", segundoNombre=" + segundoNombre + ", primerApellido=" + primerApellido
 				+ ", segundoApellido=" + segundoApellido + ", telefono=" + telefono + ", email=" + email
-				+ ", fechaNacimiento=" + fechaNacimiento + "]";
+				+ ", fechaNacimiento=" + fechaNacimiento + ", estado=" + estado + "]";
 	}
+	
+	
 	
 	
 }
