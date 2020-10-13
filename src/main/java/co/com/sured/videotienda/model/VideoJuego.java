@@ -23,7 +23,8 @@ public class VideoJuego implements Serializable{
 	private String director;
 	private String protagonista;
 	private String productora;
-	private int año;
+	@Column(name="año")
+	private int ano;
 	private String tecnologia;
 	
 	@Column(name="precio_alquiler")
@@ -63,11 +64,11 @@ public class VideoJuego implements Serializable{
 	public void setProductora(String productora) {
 		this.productora = productora;
 	}
-	public int getAño() {
-		return año;
+	public int getAno() {
+		return ano;
 	}
-	public void setAño(int año) {
-		this.año = año;
+	public void setAno(int ano) {
+		this.ano = ano;
 	}
 	public String getTecnologia() {
 		return tecnologia;
@@ -102,7 +103,7 @@ public class VideoJuego implements Serializable{
 	@Override
 	public String toString() {
 		return "VideoJuego [id=" + id + ", nombre=" + nombre + ", director=" + director + ", protagonista="
-				+ protagonista + ", productora=" + productora + ", año=" + año + ", tecnologia=" + tecnologia
+				+ protagonista + ", productora=" + productora + ", año=" + ano + ", tecnologia=" + tecnologia
 				+ ", precioAlquiler=" + precioAlquiler + ", precioVenta=" + precioVenta + ", estado=" + estado
 				+ ", stock=" + stock + "]";
 	}

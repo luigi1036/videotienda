@@ -18,6 +18,8 @@ public class ClienteServicesImp implements IClienteServices{
 	@Autowired
 	ICliente icliente; 
 	
+	
+	
 	@Override
 	public List<Cliente> findAll() {
 		return (List<Cliente>) icliente.findAll();
@@ -33,29 +35,7 @@ public class ClienteServicesImp implements IClienteServices{
 	@Override
 	public Cliente actualizar(Cliente cliente, Long id) throws Exception {
 		
-		Cliente clienteactual = icliente.findById(id).orElse(null);
-		
-		try {
-			if(clienteactual!=null) {
-				clienteactual.setCedula(cliente.getCedula());
-				clienteactual.setTipoDocumento(cliente.getTipoDocumento());
-				clienteactual.setPrimerNombre(cliente.getPrimerNombre());
-				clienteactual.setSegundoNombre(cliente.getSegundoNombre());
-				clienteactual.setPrimerApellido(cliente.getPrimerApellido());
-				clienteactual.setSegundoApellido(cliente.getSegundoApellido());
-				clienteactual.setTelefono(cliente.getTelefono());
-				clienteactual.setEmail(cliente.getEmail());
-				clienteactual.setFechaNacimiento(cliente.getFechaNacimiento());
-				clienteactual.setEstado(cliente.getEstado());
-			}
-		} catch (Exception e) {
-			throw new Exception("Error al actualizar el cliente");
-		}
-		
-		
-		
-		
-		return icliente.save(clienteactual);
+		return icliente.save(cliente);
 	}
 	
 
@@ -64,5 +44,6 @@ public class ClienteServicesImp implements IClienteServices{
 		
 		return icliente.findById(id).orElse(null);
 	}
+	
 
 }

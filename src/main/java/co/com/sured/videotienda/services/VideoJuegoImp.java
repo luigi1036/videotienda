@@ -28,22 +28,7 @@ public class VideoJuegoImp implements IVideoJuegoServices{
 	@Override
 	public VideoJuego actualizar(VideoJuego videojuego, Long id) {
 		
-		VideoJuego videoactual = videoJuego.findById(id).orElse(null);
-		System.out.println("precio" + videojuego.getPrecioVenta());
-		System.out.println("precio" + videojuego.getPrecioAlquiler());
-		videoactual.setNombre(videojuego.getNombre());
-		videoactual.setDirector(videojuego.getDirector());
-		videoactual.setProtagonista(videojuego.getProtagonista());
-		videoactual.setProductora(videojuego.getProductora());
-		videoactual.setAño(videojuego.getAño());
-		videoactual.setTecnologia(videojuego.getTecnologia());
-		videoactual.setPrecioAlquiler(videojuego.getPrecioAlquiler());
-		videoactual.setPrecioVenta(videojuego.getPrecioVenta());
-		videoactual.setEstado(videojuego.getEstado());
-		videoactual.setStock(videojuego.getStock());
-		
-		
-		return videoJuego.save(videoactual);
+		return videoJuego.save(videojuego);
 	}
 
 	@Override

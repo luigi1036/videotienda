@@ -37,7 +37,7 @@ public class Prestamo implements Serializable{
 	
 	@Column(name="fecha_entregado")
 	@Temporal(TemporalType.DATE)
-	private Date fechaEntregado;
+	private Date fechaEntrega;
 	
 	private int estado;
 	
@@ -71,11 +71,11 @@ public class Prestamo implements Serializable{
 	public void setFechaVencimiento(Date fechaVencimiento) {
 		this.fechaVencimiento = fechaVencimiento;
 	}
-	public Date getFechaEntregado() {
-		return fechaEntregado;
+	public Date getFechaEntrega() {
+		return fechaEntrega;
 	}
-	public void setFechaEntregado(Date fechaEntregado) {
-		this.fechaEntregado = fechaEntregado;
+	public void setFechaEntrega(Date fechaEntrega) {
+		this.fechaEntrega = fechaEntrega;
 	}
 	public int getEstado() {
 		return estado;
@@ -86,7 +86,7 @@ public class Prestamo implements Serializable{
 	@Override
 	public String toString() {
 		return "prestamo [id=" + id + ", idJuego=" + idJuego + ", cedulaCliente=" + cedulaCliente + ", fechaAlquiler=" + fechaAlquiler
-				+ ", fechaVencimiento=" + fechaVencimiento + ", fechaEntregado=" + fechaEntregado + ", estado=" + estado
+				+ ", fechaVencimiento=" + fechaVencimiento + ", fechaEntrega=" + fechaEntrega + ", estado=" + estado
 				+ "]";
 	}
 	
